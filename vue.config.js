@@ -1,8 +1,8 @@
 process.env.VUE_APP_VERSION = require('./package.json').version;
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const myPlugins = process.env.NODE_ENV === 'production'
-  ? [ new CleanWebpackPlugin(['dist']) ]
+  ? [ new CleanWebpackPlugin() ]
   : [ ];
 
 module.exports = {
