@@ -8,13 +8,13 @@ export const actions: ActionTree<AuthState, RootState> = {
     login(context, user) {
     return new Promise((resolve, reject) => {
       const authority = {
-        url: 'https://signin-dev.okhmatdyt.axel.com.ua/connect/token',
+        url: `${process.env.VUE_APP_IDS_URL}/connect/token`,
         params: {
           username: user.username,
           password: user.password,
-          client_id: 'Dicom',
-          grant_type: 'password',
-          scope: 'ModdiApiScope',
+          client_id: process.env.VUE_APP_IDS_CLIENT_ID,
+          grant_type: process.env.VUE_APP_IDS_GRANT_TYPE,
+          scope: process.env.VUE_APP_IDS_SCOPE,
         },
       };
 
@@ -52,7 +52,7 @@ export const actions: ActionTree<AuthState, RootState> = {
   register({ commit }, user) {
     return new Promise((resolve, reject) => {
       commit('AUTH_REQUEST');
-      axios({ url: 'http://localhost:3000/register', data: user, method: 'POST' })
+      axios({ url: `${process.env.VUE_APP_IDS_URL}/register`, data: user, method: 'POST' })
         .then((resp) => {
           const token = resp.data.token;
           const userData = resp.data.user;
