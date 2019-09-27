@@ -46,7 +46,7 @@ import { Property } from './types';
       userLogin: {
         value: {
           required,
-          minLength: minLength(5),
+          minLength: minLength(4),
         },
       },
       password: {

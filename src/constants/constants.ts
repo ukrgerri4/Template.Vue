@@ -1,3 +1,6 @@
-const STATE_SUCCESS = 'success';
-const STATE_LOADING = 'loading';
-const STATE_ERROR = 'error';
+export class State {
+    static readonly SUCCESS: string = 'SUCCESS';
+    static readonly LOADING: string = 'LOADING';
+    static readonly ERROR: string  = 'ERROR';
+}
+

@@ -5,14 +5,15 @@ import { RootState } from '../types';
 
 
 export const actions: ActionTree<AuthState, RootState> = {
-    login(context, user) {
+  login(context, user) {
     return new Promise((resolve, reject) => {
       const authority = {
         url: `${process.env.VUE_APP_IDS_URL}/connect/token`,
         params: {
+          client_id: process.env.VUE_APP_IDS_CLIENT_ID,
+          client_secret: process.env.VUE_APP_IDS_CLIENT_SECRET,
           username: user.username,
           password: user.password,
-          client_id: process.env.VUE_APP_IDS_CLIENT_ID,
           grant_type: process.env.VUE_APP_IDS_GRANT_TYPE,
           scope: process.env.VUE_APP_IDS_SCOPE,
         },
