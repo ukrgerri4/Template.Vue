@@ -6,6 +6,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import axios from 'axios';
+import router from './router';
+import store from './store';
+
 import MainLayout from '@/layouts/mainLayout/MainLayout.vue';
 
 @Component({
@@ -14,6 +18,21 @@ import MainLayout from '@/layouts/mainLayout/MainLayout.vue';
   },
 })
 export default class App extends Vue {
+  private created() {
+    const token = store.getters['auth/getToken'];
+    if (token) {
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    }
+
+    axios.interceptors.response.use(undefined, (error) => {
+      return new Promise((resolve, reject) => {
+        if (error.response.status === 401) {
+          router.push({ name: 'login' });
+        }
+        throw error;
+      });
+    });
+  }
 }
 </script>
 

@@ -37,7 +37,7 @@ export const actions: ActionTree<AuthState, RootState> = {
         .then((resp) => {
           const token = resp.data.access_token;
           localStorage.setItem('token', token);
-          axios.defaults.headers.common.Authorization = token;
+          axios.defaults.headers.common.Authorization = `Bearer ${token}`;
           context.commit('AUTH_SUCCESS', { token, user });
           resolve(resp);
         })

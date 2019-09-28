@@ -1,6 +1,6 @@
 export class State {
-    static readonly SUCCESS: string = 'SUCCESS';
-    static readonly LOADING: string = 'LOADING';
-    static readonly ERROR: string  = 'ERROR';
+    public static readonly SUCCESS: string = 'SUCCESS';
+    public static readonly LOADING: string = 'LOADING';
+    public static readonly ERROR: string  = 'ERROR';
 }
 

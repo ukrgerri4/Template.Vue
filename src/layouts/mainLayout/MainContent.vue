@@ -6,6 +6,7 @@
 			</v-icon>
 		</div>
 		<div>
+			<v-grid title="Client"></v-grid>
 			<!-- <keep-alive>
 				<component v-bind:is="currentTabComponent"></component>
 			</keep-alive> -->
@@ -17,6 +18,8 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { State, Action, Getter, namespace } from 'vuex-class';
 import { Icon } from '@/types/types.ts';
+// import Vgrid from '@/components/Vgrid.vue';
+
 // import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
 @Component
