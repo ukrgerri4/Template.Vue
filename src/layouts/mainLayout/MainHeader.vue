@@ -2,6 +2,7 @@
 	<div id="main-header">
 		<div>
 			<router-link :to="{ name: 'home'}">
+				<span>Main page</span>
 				<v-icon :icon-style="iconStyle">
 					home
 				</v-icon>

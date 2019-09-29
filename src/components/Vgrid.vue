@@ -2,10 +2,10 @@
   <div id="grid-layout">
     <h2>{{title}}</h2>
     <div v-for="obj in objects" :key="obj.Id">
-      <span>{{obj.id}}</span>
-      <span>{{obj.clientId}}</span>
-      <span>{{obj.clientName}}</span>
-      <span>{{obj.enabled}}</span>
+      <span>{{obj.Id}}</span>
+      <span>{{obj.ClientId}}</span>
+      <span>{{obj.ClientName}}</span>
+      <span>{{obj.Enabled}}</span>
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default class Vgrid extends Vue {
       method: 'POST',
     })
       .then((resp) => {
-        this.objects = resp.data.values;
+        this.objects = resp.data.Values;
         // tslint:disable-next-line:no-console
         console.log(this.objects);
       })

@@ -1,6 +1,8 @@
 <template>
   <div id="home-layout">
     <header>
+      <div>{{'title' | translate}}</div>
+      <button @click="changeLang('ru_RU')">Lang</button>
       <router-link tag="button" :to="{ name: 'login'}">Login</router-link>
       <button>Register</button>
       <router-link tag="button" :to="{ name: 'viewer'}">Viewer</router-link>
@@ -29,6 +31,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Modal from '@/components/Modal.vue';
+import {loadLanguageAsync} from '@/language/i18n';
+// import { translate, i18n } from '@/language/i18n';
 
 @Component({
   components: {
@@ -44,6 +48,10 @@ export default class Home extends Vue {
 
   public closeModal(modalName: string) {
     this.modals[modalName] = false;
+  }
+
+  public changeLang(lang: string) {
+    loadLanguageAsync(lang);
   }
 }
 </script>

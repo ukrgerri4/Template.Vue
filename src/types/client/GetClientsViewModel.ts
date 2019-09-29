@@ -1,6 +1,6 @@
 export interface GetClientsViewModel {
-    id: number;
-    clientId: string;
-    clientName: string;
-    enabled: boolean;
+    Id: number;
+    ClientId: string;
+    ClientName: string;
+    Enabled: boolean;
 }
