@@ -1,4 +1,5 @@
 export interface LanguageState {
-    language: string;
+    preferredLanguage: string;
+    loadedLanguages: string[];
 }
 

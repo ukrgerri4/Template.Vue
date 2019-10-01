@@ -2,7 +2,7 @@
   <div id="home-layout">
     <header>
       <div>{{'title' | translate}}</div>
-      <button @click="changeLang('ru_RU')">Lang</button>
+      <button @click="changeLang('ru-RU')">Lang</button>
       <router-link tag="button" :to="{ name: 'login'}">Login</router-link>
       <button>Register</button>
       <router-link tag="button" :to="{ name: 'viewer'}">Viewer</router-link>
@@ -31,7 +31,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Modal from '@/components/Modal.vue';
-import {loadLanguageAsync} from '@/language/i18n';
+// import {loadLanguageAsync} from '@/language/i18n';
+import { Action, Getter } from 'vuex-class';
 // import { translate, i18n } from '@/language/i18n';
 
 @Component({
@@ -40,6 +41,9 @@ import {loadLanguageAsync} from '@/language/i18n';
   },
 })
 export default class Home extends Vue {
+  @Action('loadLanguage', { namespace: 'language' }) public loadLanguage: any;
+  @Getter('getPreferredLanguage', { namespace: 'language' }) public preferredLanguage!: string;
+
   private modals: any = {
     testModal: false,
     testModal1: false,
@@ -51,7 +55,9 @@ export default class Home extends Vue {
   }
 
   public changeLang(lang: string) {
-    loadLanguageAsync(lang);
+    // tslint:disable-next-line:no-console
+    console.log(this.preferredLanguage);
+    this.loadLanguage(lang);
   }
 }
 </script>

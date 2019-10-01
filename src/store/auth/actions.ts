@@ -34,45 +34,45 @@ export const actions: ActionTree<AuthState, RootState> = {
           'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
         },
       })
-        .then((resp) => {
-          const token = resp.data.access_token;
-          localStorage.setItem('token', token);
-          axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-          context.commit('AUTH_SUCCESS', { token, user });
-          resolve(resp);
-        })
-        .catch((err) => {
-          context.commit('AUTH_ERROR');
-          localStorage.removeItem('token');
-          context.state.token = '';
-          reject(err);
-        });
+      .then((resp) => {
+        const token = resp.data.access_token;
+        localStorage.setItem('token', token);
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+        context.commit('AUTH_SUCCESS', { token, user });
+        resolve(resp);
+      })
+      .catch((err) => {
+        context.commit('AUTH_ERROR');
+        localStorage.removeItem('token');
+        context.state.token = '';
+        reject(err);
+      });
     });
   },
 
-  register({ commit }, user) {
+  register(context, user) {
     return new Promise((resolve, reject) => {
-      commit('AUTH_REQUEST');
+      context.commit('AUTH_REQUEST');
       axios({ url: `${process.env.VUE_APP_IDS_URL}/register`, data: user, method: 'POST' })
         .then((resp) => {
           const token = resp.data.token;
           const userData = resp.data.user;
           localStorage.setItem('token', token);
           axios.defaults.headers.common.Authorization = token;
-          commit('AUTH_SUCCESS', token, userData);
+          context.commit('AUTH_SUCCESS', token, userData);
           resolve(resp);
         })
         .catch((err) => {
-          commit('AUTH_ERROR', err);
+          context.commit('AUTH_ERROR', err);
           localStorage.removeItem('token');
           reject(err);
         });
     });
   },
 
-  logout({ commit }) {
+  logout(context) {
     return new Promise((resolve, reject) => {
-      commit('LOGOUT');
+      context.commit('LOGOUT');
       localStorage.removeItem('token');
       delete axios.defaults.headers.common.Authorization;
       resolve();

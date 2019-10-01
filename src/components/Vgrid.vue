@@ -11,18 +11,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
 import axios from 'axios';
-import { BaseSelectRequest } from '@/types/common/BaseSelectRequest.ts';
-import { GetClientsViewModel } from '@/types/client/GetClientsViewModel.ts';
-
+import { Component, Inject, Prop, Vue } from 'vue-property-decorator';
+import { BaseSelectRequest, BaseSelectResponse } from '@/types/common/BaseSelectRequest.ts';
+import { ClientSelectModel } from '@/services/clients/types';
+import { ClientService } from '@/services/clients/clientService';
 
 @Component
 export default class Vgrid extends Vue {
   @Prop({ default: '' }) public title!: string;
+  private clientService!: ClientService;
 
   private request: BaseSelectRequest;
-  private objects: GetClientsViewModel[];
+  private objects: ClientSelectModel[];
 
   constructor() {
     super();
@@ -31,16 +32,13 @@ export default class Vgrid extends Vue {
       PageSize: 10,
     };
     this.objects = [];
+    this.clientService = new ClientService();
   }
 
   private created() {
-    axios({
-      url: `${process.env.VUE_APP_IDS_URL}/api/client/select`,
-      data: this.request,
-      method: 'POST',
-    })
+    this.clientService.select(this.request)
       .then((resp) => {
-        this.objects = resp.data.Values;
+        this.objects = resp.Values;
         // tslint:disable-next-line:no-console
         console.log(this.objects);
       })

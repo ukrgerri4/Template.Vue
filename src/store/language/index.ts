@@ -1,19 +1,20 @@
 import { Module } from 'vuex';
-// import { getters } from './getters';
+import { getters } from './getters';
 import { actions } from './actions';
-// import { mutations } from './mutations';
+import { mutations } from './mutations';
 import { LanguageState } from './types';
 import { RootState } from '../types';
 
 const state: LanguageState = {
-  language: '',
+  preferredLanguage: '',
+  loadedLanguages: ['en-EN'],
 };
 
 // const namespaced: boolean = true;
 export const language: Module<LanguageState, RootState> = {
   namespaced: true,
   state,
-//   getters,
+  getters,
   actions,
-//   mutations,
+  mutations,
 };
