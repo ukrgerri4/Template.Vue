@@ -1,5 +1,6 @@
 {
     "title": "Site title!",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "home": "Home"
 }

@@ -8,14 +8,13 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Vicon extends Vue {
-  // @Prop({type: Object as () => User})
+export default class VIcon extends Vue {
   @Prop({
     type: Object as () => any,
     default: () =>  {
       return { fontSize: '24px' };
     },
-  }) public iconStyle!: any;
+  }) public iconStyle?: any;
 }
 </script>
 

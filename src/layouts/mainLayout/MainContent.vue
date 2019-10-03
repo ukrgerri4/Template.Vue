@@ -5,12 +5,11 @@
 				{{ icon.name }}
 			</v-icon>
 		</div>
-		<div>
-			<v-grid title="Client"></v-grid>
-			<!-- <keep-alive>
-				<component v-bind:is="currentTabComponent"></component>
-			</keep-alive> -->
-		</div>
+		<v-grid 
+			entity="client"
+			serviceName="ClientService">
+		</v-grid>
+		<!-- <component v-bind:is="vgridComponent"></component> -->
 	</div>
 </template>
 
@@ -18,14 +17,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { State, Action, Getter, namespace } from 'vuex-class';
 import { Icon } from '@/types/types.ts';
-// import Vgrid from '@/components/Vgrid.vue';
-
-// import { required, minLength, maxLength } from 'vuelidate/lib/validators';
+// import VGrid from '@/components/VGrid.vue';
 
 @Component
 export default class MainContent extends Vue {
   private icons: Icon[];
   private iconStyle: any = { fontSize: '48px'};
+//   private vgridComponent: string = 'VGrid'
 
   constructor() {
     super();

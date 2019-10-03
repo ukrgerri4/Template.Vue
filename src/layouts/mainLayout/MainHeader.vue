@@ -2,7 +2,7 @@
 	<div id="main-header">
 		<div>
 			<router-link :to="{ name: 'home'}">
-				<span>Main page</span>
+				<span>{{'home' | translate }}</span>
 				<v-icon :icon-style="iconStyle">
 					home
 				</v-icon>

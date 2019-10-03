@@ -1,6 +1,8 @@
 import axios from 'axios';
+import { injectable } from 'inversify';
 import { BaseSelectRequest, BaseSelectResponse } from '@/types/common/BaseSelectRequest.ts';
 
+@injectable()
 export abstract class BaseService<TSelect, TDetail, TCreate, TKey> {
     protected serviceName!: string;
     protected url: string = process.env.VUE_APP_IDS_URL;

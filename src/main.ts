@@ -1,10 +1,12 @@
+import 'reflect-metadata';
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
 import Vuelidate from 'vuelidate';
-import Vicon from './components/Vicon.vue';
-import Vgrid from './components/Vgrid.vue';
+import VIcon from './components/VIcon.vue';
+import VGrid from './components/VGrid.vue';
+import VPaginate from './components/VPaginate.vue';
 import { i18n, configureUILanguage, translate } from '@/language/i18n';
 import { axiosInterceptorsSetup } from './helpers/interceptors';
 // import '@/plugins/vuetify';
@@ -15,8 +17,9 @@ axiosInterceptorsSetup();
 configureUILanguage();
 
 Vue.use(Vuelidate);
-Vue.component('v-icon', Vicon);
-Vue.component('v-grid', Vgrid);
+Vue.component('v-icon', VIcon);
+Vue.component('v-grid', VGrid);
+Vue.component('v-paginate', VPaginate);
 Vue.filter('translate', translate);
 
 new Vue({

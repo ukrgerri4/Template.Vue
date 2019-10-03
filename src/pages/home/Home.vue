@@ -30,19 +30,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Modal from '@/components/Modal.vue';
-// import {loadLanguageAsync} from '@/language/i18n';
 import { Action, Getter } from 'vuex-class';
-// import { translate, i18n } from '@/language/i18n';
 
-@Component({
-  components: {
-    Modal,
-  },
-})
+@Component
 export default class Home extends Vue {
   @Action('loadLanguage', { namespace: 'language' }) public loadLanguage: any;
-  @Getter('getPreferredLanguage', { namespace: 'language' }) public preferredLanguage!: string;
+  @Getter('getPreferredLanguage', { namespace: 'language' }) public preferredLanguage?: string;
 
   private modals: any = {
     testModal: false,
