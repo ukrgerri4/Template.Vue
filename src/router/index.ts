@@ -5,18 +5,22 @@ import Login from '@/pages/auth/Login.vue';
 import MainLayout from '@/layouts/mainLayout/MainLayout.vue';
 import Home from '@/pages/home/Home.vue';
 import NotFound from '@/pages/errors/NotFound.vue';
+import DataViewLayout from '@/layouts/mainLayout/dataViewLayout/DataViewLayout.vue';
+import DataGrid from '@/components/data/dataGrid/DataGrid.vue';
+import DataDetails from '@/components/data/dataDetails/DataDetails.vue';
+import DataDefault from '@/components/data/dataDefault/DataDefault.vue';
 
 Vue.use(Router);
 
 const router = new Router({
   routes: [
-    {
-      path: '/',
-      name: 'default',
-      redirect: (to) => {
-        return { name: 'home' };
-      },
-    },
+    // {
+    //   path: '/',
+    //   name: 'default',
+    //   redirect: (to) => {
+    //     return { name: 'home' };
+    //   },
+    // },
     {
       path: '/home',
       name: 'home',
@@ -28,12 +32,33 @@ const router = new Router({
       component: Login,
     },
     {
-      path: '/viewer',
-      name: 'viewer',
+      path: '/',
       component: MainLayout,
       meta: {
         requiresAuth: true,
       },
+      children: [
+        {
+          path: '/',
+          component: DataViewLayout,
+          children: [
+            {
+              path: '/',
+              name: 'default',
+              component: DataDefault,
+            },
+            {
+              path: '/:entity',
+              component: DataGrid,
+              props : { entity: 'client', serviceName: 'ClientService'},
+            },
+            {
+              path: '/:entity/:id',
+              component: DataDetails,
+            },
+          ],
+        },
+      ],
     },
     {
         path: '*',

@@ -18,8 +18,8 @@ configureUILanguage();
 
 Vue.use(Vuelidate);
 Vue.component('v-icon', VIcon);
-Vue.component('v-grid', VGrid);
-Vue.component('v-paginate', VPaginate);
+// Vue.component('v-grid', VGrid);
+// Vue.component('v-paginate', VPaginate);
 
 Vue.filter('translate', translate);
 

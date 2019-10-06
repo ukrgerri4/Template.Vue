@@ -5,7 +5,7 @@
       <button @click="changeLang('ru-RU')">Lang</button>
       <router-link tag="button" :to="{ name: 'login'}">Login</router-link>
       <button>Register</button>
-      <router-link tag="button" :to="{ name: 'viewer'}">Viewer</router-link>
+      <router-link tag="button" :to="{ name: 'default'}">Identity</router-link>
       <button v-for="(value, key) in modals" :key="key" @click="modals[key] = true">{{ key }}</button>
     </header>
 

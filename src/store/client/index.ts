@@ -18,9 +18,9 @@ const state: ClientState = {
   },
   dataOptions: {
     // Id: { name: 'client.table.id' },
-    ClientId: { name: 'client.table.clientId' },
-    ClientName: { name: 'client.table.clientName' },
-    Enabled: { name: 'client.table.enabled' },
+    ClientId: { name: 'client.table.clientId', default: 'not set' },
+    ClientName: { name: 'client.table.clientName', default: 'not set' },
+    Enabled: { name: 'client.table.enabled', default: 'not set' },
   },
   filterOptions: [
     { index: 0, name: 'client.filter.clientId', type: 'text', handler: '' },

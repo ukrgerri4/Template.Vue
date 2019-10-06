@@ -1,5 +1,5 @@
 <template>
-  <div id="grid-content">
+  <div id="data-grid-content">
     
     <div>
       <div v-for="(option, optionName) in dataOptions" :key="optionName">
@@ -8,10 +8,12 @@
     </div>
 
     <div>
-      <div v-for="obj in dataValues" :key="obj.Id" @click="$emit(clickHandler, obj.Id)">
-        <div v-for="(value, name) in obj" :key="name">
-          <span v-if="shouldShow(name)">{{value ? value : ''}}</span>
-        </div>
+      <div v-for="obj in dataValues" :key="obj.Id" @click="$emit('onRowClick', obj.Id)">
+        <template v-for="(value, name) in obj">
+          <div v-if="shouldShow(name)" :key="name">
+            <span>{{value ? value : getDefaultValue(name)}}</span>
+          </div>
+        </template>
       </div>  
     </div>
 
@@ -41,11 +43,15 @@ export default class GridContent extends Vue {
   private shouldShow(name: string): boolean {
     return this.dataOptions[name] ? true : false;
   }
+
+  private getDefaultValue(name: string): string {
+    return this.dataOptions[name] ? this.dataOptions[name].default : '';
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-#grid-content{
+#data-grid-content{
   display: flex;
   flex: auto;
   flex-direction: row;

@@ -1,5 +1,5 @@
 <template>
-	<div id="main-header">
+	<div id="main-header-layout">
 		<div>
 			<router-link :to="{ name: 'home'}">
 				<span>{{'home' | translate }}</span>
@@ -21,7 +21,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { Icon } from '@/types/types.ts';
 
 @Component
-export default class MainHeader extends Vue {
+export default class MainHeaderLayout extends Vue {
   private icons: Icon[];
   private iconStyle: any = { fontSize: '24px', padding: '0 10px', color: '#fff' };
 
@@ -37,7 +37,7 @@ export default class MainHeader extends Vue {
 </script>
 
 <style lang="scss" scoped>
-#main-header {
+#main-header-layout {
     display: flex;
 		justify-content: space-between;
     align-items: center;

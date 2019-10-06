@@ -96,7 +96,7 @@ export default class Auth extends Vue {
         password: this.password.value,
       }).then(() => {
         this.submitStatus = 'OK';
-        this.$router.push({ name: 'viewer' });
+        this.$router.push({ name: 'default' });
       }).catch(() => {
         this.submitStatus = 'ERROR';
       });

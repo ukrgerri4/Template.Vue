@@ -1,27 +1,26 @@
 <template>
 	<div id="main-layout">
-    <main-header></main-header>
-    <main-content></main-content>
-    <main-footer></main-footer>
+    <main-header-layout></main-header-layout>
+    <main-content-layout></main-content-layout>
+    <main-footer-layout></main-footer-layout>
 	</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import MainHeader from './MainHeader.vue';
-import MainFooter from './MainFooter.vue';
-import MainContent from './MainContent.vue';
+import MainHeaderLayout from './MainHeaderLayout.vue';
+import MainFooterLayout from './MainFooterLayout.vue';
+import MainContentLayout from './MainContentLayout.vue';
 import { State, Action, Getter, namespace } from 'vuex-class';
 
 @Component({
   components: {
-    MainHeader,
-    MainContent,
-    MainFooter,
+    MainHeaderLayout,
+    MainContentLayout,
+    MainFooterLayout,
   },
 })
-export default class MainLayout extends Vue {
-}
+export default class MainLayout extends Vue {}
 </script>
 
 <style lang="scss" scoped>

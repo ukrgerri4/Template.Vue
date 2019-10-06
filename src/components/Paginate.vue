@@ -22,7 +22,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component
-export default class VPaginate extends Vue {
+export default class Paginate extends Vue {
     @Prop() private currentPage?: number;
     @Prop() private pageSize?: number;
     @Prop() private total?: number;

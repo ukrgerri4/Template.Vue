@@ -1,5 +1,5 @@
 <template>
-	<div id="main-footer">
+	<div id="main-footer-layout">
 		<span>Some additional information</span>
 		<span v-once>{{ appVersion }}</span>
 	</div>
@@ -10,7 +10,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import store from '@/store';
 
 @Component
-export default class MainFooter extends Vue {
+export default class MainFooterLayout extends Vue {
   get appVersion(): string {
     return `Version ${store.state.version}`;
   }
@@ -18,7 +18,7 @@ export default class MainFooter extends Vue {
 </script>
 
 <style lang="scss" scoped>
-#main-footer {
+#main-footer-layout {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

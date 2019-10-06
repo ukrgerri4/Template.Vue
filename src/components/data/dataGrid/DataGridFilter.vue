@@ -1,5 +1,5 @@
 <template>
-  <div id="grid-filter">
+  <div id="data-grid-filter">
     <div v-for="option in filterOptions" :key="option.index">
       <span>{{option.name | translate}}</span>
       <div v-if="option.type === 'text'">
@@ -47,11 +47,16 @@ export default class GridFilter extends Vue {
   get filterOptions(): FilterOption[] {
     return store.getters[`${this.entity}/filterOptions`];
   }
+
+  private methodToRunOnSelect() {
+    // tslint:disable-next-line:no-console
+    console.log('');
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-#grid-filter {
+#data-grid-filter {
   display: flex;
   flex: auto;
   flex-direction: row;
