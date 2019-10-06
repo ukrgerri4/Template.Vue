@@ -2,5 +2,17 @@
     "title": "Заголовок сайта",
     "login": "Логин",
     "register": "Регистрация",
-    "home": "На главную"
+    "home": "На главную",
+    "client" : {
+        "filter": {
+            "clientId": "ID клиента",
+            "clientName": "Имя клиента"
+        },
+        "table": {
+            "id": "",
+            "clientId": "ID",
+            "clientName": "Имя",
+            "enabled": "Активный"
+        }
+    }
 }

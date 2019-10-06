@@ -13,4 +13,8 @@ export const mutations: MutationTree<ClientState> = {
   UPDATE_NAME(state, name) {
     state.request.Name = name ? name : '';
   },
+
+  UPDATE_RESPONSE(state, response) {
+    state.response = response;
+  },
 };

@@ -2,5 +2,17 @@
     "title": "Site title!",
     "login": "Login",
     "register": "Register",
-    "home": "Home"
+    "home": "Home",
+    "client" : {
+        "filter": {
+            "clientId": "Client ID",
+            "clientName": "Client name"
+        },
+        "table": {
+            "id": "",
+            "clientId": "ID",
+            "clientName": "Name",
+            "enabled": "Enable"
+        }
+    }
 }

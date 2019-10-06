@@ -19,7 +19,11 @@ import { State, Action, Getter, namespace } from 'vuex-class';
 import { Icon } from '@/types/types.ts';
 // import VGrid from '@/components/VGrid.vue';
 
-@Component
+@Component /*({
+	components: {
+		VGrid,
+	},
+})*/
 export default class MainContent extends Vue {
   private icons: Icon[];
   private iconStyle: any = { fontSize: '48px'};

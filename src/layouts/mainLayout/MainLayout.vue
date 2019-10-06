@@ -1,8 +1,8 @@
 <template>
 	<div id="main-layout">
-        <main-header></main-header>
-        <main-content></main-content>
-        <main-footer></main-footer>
+    <main-header></main-header>
+    <main-content></main-content>
+    <main-footer></main-footer>
 	</div>
 </template>
 
