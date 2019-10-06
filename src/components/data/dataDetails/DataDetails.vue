@@ -10,7 +10,14 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class DataDetails extends Vue {
-  @Prop({ default: '' }) public entity?: string;
+  @Prop() private id?: string;
+  @Prop() private entity?: string;
+
+  constructor() {
+    super();
+    // console.log(this.$route);
+    console.log(`Details: ${this.id},${this.entity}`);
+  }
 }
 </script>
 

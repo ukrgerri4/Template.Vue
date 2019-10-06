@@ -40,13 +40,13 @@ import { BaseService } from '@/services/baseService';
   },
 })
 export default class DataGrid<TSelect, TDetail, TCreate, TKey> extends Vue {
-  @Prop({ default: '' }) public entity?: string;
-  @Prop({ default: '' }) public serviceName?: string;
+  @Prop() private entity?: string;
   private service?: BaseService<TSelect, TDetail, TCreate, TKey>;
 
   constructor() {
     super();
-    this.service = myContainer.get(this.serviceName ? this.serviceName : '');
+    const serviceName = this.getServiceName();
+    this.service = myContainer.get(serviceName);
   }
 
   get request() {
@@ -59,6 +59,13 @@ export default class DataGrid<TSelect, TDetail, TCreate, TKey> extends Vue {
 
   private created() {
     this.getData();
+  }
+
+  private getServiceName(): string {
+    if (this.entity && this.entity.length > 0) {
+      return `${this.entity[0].toUpperCase()}${this.entity.slice(1)}Service`;
+    }
+    return '';
   }
 
   private getData() {
