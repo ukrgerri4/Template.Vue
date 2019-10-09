@@ -20,17 +20,9 @@ export default class App extends Vue {
 <style lang="scss">
 @import './styles/reset.scss';
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html, body {
   height: 100%;
   width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -41,10 +33,5 @@ body {
 #app{
   display: flex;
   flex: auto;
-}
-
-a {
-  text-decoration: none;
-  color: white;
 }
 </style>

@@ -50,12 +50,12 @@ const router = new Router({
             {
               path: '/:entity',
               component: DataGrid,
-              props : true,
+              props : { customComponent: '' },
             },
             {
               path: '/:entity/:id',
               component: DataDetails,
-              props : true,
+              props : { customComponent: '' },
             },
           ],
         },

@@ -3,6 +3,7 @@
     <v-icon v-for="icon in icons" :key="icon.name" :icon-style="icon.style">
       {{ icon.name }}
     </v-icon>
+    <t-button>Adafrfgg</t-button>
   </div>
 </template>
 
@@ -32,6 +33,5 @@ export default class LeftNavBar extends Vue {
   display: flex;
 	flex: auto;
   flex-direction: column;
-  width: 50px;
 }
 </style>

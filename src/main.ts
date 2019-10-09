@@ -5,11 +5,9 @@ import router from './router';
 import store from './store';
 import Vuelidate from 'vuelidate';
 import VIcon from './components/VIcon.vue';
-import VGrid from './components/grid/VGrid.vue';
-import VPaginate from './components/VPaginate.vue';
+import TButton from '@/components/TButton.vue'
 import { i18n, configureUILanguage, translate } from '@/language/i18n';
 import { axiosInterceptorsSetup } from './helpers/interceptors';
-// import '@/plugins/vuetify';
 
 Vue.config.productionTip = false;
 
@@ -18,8 +16,7 @@ configureUILanguage();
 
 Vue.use(Vuelidate);
 Vue.component('v-icon', VIcon);
-// Vue.component('v-grid', VGrid);
-// Vue.component('v-paginate', VPaginate);
+Vue.component('t-button', TButton);
 
 Vue.filter('translate', translate);
 
