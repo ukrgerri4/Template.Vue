@@ -3,7 +3,8 @@
     <div>
       <left-nav-bar></left-nav-bar>
     </div>
-    <router-view></router-view>
+    <router-view :key="$route.path"></router-view>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 

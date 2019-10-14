@@ -1,7 +1,7 @@
 import { MutationTree } from 'vuex';
-import { ClientState } from './types';
+import { ClientsState } from './types';
 
-export const mutations: MutationTree<ClientState> = {
+export const mutations: MutationTree<ClientsState> = {
   UPDATE_PAGE_NUMBER(state, pageNumber) {
     state.request.PageNumber = pageNumber > 0 ? pageNumber : 1;
   },

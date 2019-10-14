@@ -1,7 +1,7 @@
 import { Container } from 'inversify';
-import { ClientService } from '@/services/client/clientService';
+import { ClientsService } from '@/services/clients/clientsService';
 
 const myContainer = new Container();
-myContainer.bind<ClientService>('ClientService').to(ClientService).inSingletonScope();
+myContainer.bind<ClientsService>('ClientsService').to(ClientsService).inSingletonScope();
 
 export { myContainer };

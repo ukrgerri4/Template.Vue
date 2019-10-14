@@ -5,7 +5,7 @@ import router from './router';
 import store from './store';
 import Vuelidate from 'vuelidate';
 import VIcon from './components/VIcon.vue';
-import TButton from '@/components/TButton.vue'
+import TButton from '@/components/TButton.vue';
 import { i18n, configureUILanguage, translate } from '@/language/i18n';
 import { axiosInterceptorsSetup } from './helpers/interceptors';
 

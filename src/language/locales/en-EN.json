@@ -1,18 +1,25 @@
 {
-    "title": "Site title!",
-    "login": "Login",
-    "register": "Register",
-    "home": "Home",
-    "client" : {
-        "filter": {
-            "clientId": "Client ID",
-            "clientName": "Client name"
-        },
-        "table": {
-            "id": "",
-            "clientId": "ID",
-            "clientName": "Name",
-            "enabled": "Enable"
-        }
+  "title": "Site title!",
+  "login": "Login",
+  "register": "Register",
+  "home": "Home",
+  "mainContent": {
+    "leftNavBar": {
+      "users": "Users",
+      "clients": "Clients",
+      "resources": "Resources"
     }
+  },
+  "clients" : {
+    "filter": {
+      "clientId": "Client ID",
+      "clientName": "Client name"
+    },
+    "table": {
+      "id": "",
+      "clientId": "ID",
+      "clientName": "Name",
+      "enabled": "Enable"
+    }
+  }
 }

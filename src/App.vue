@@ -8,6 +8,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 import MainLayout from '@/layouts/mainLayout/MainLayout.vue';
 
+Component.registerHooks([
+    'beforeRouteEnter',
+    'beforeRouteLeave',
+    'beforeRouteUpdate',
+]);
+
 @Component({
   components: {
     MainLayout,

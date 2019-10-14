@@ -23,8 +23,10 @@
 
 <script lang="ts">
 import axios from 'axios';
+import { CancelTokenSource } from 'axios';
 import store from '@/store';
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Route } from 'vue-router';
 import DataGridFilter from '@/components/data/dataGrid/DataGridFilter.vue';
 import DataGridContent from '@/components/data/dataGrid/DataGridContent.vue';
 import Paginate from '@/components/Paginate.vue';
@@ -44,8 +46,15 @@ export default class DataGrid<TSelect, TDetail, TCreate, TKey> extends Vue {
   private entity?: string;
   private service?: BaseService<TSelect, TDetail, TCreate, TKey>;
 
+  // public beforeRouteUpdate(to: Route, from: Route, next: any) {
+  //   this.entity = to.params.entity;
+  //   console.log('Update ' + this.entity);
+  //   next();
+  // }
+
   private created() {
     this.entity = this.$route.params.entity;
+    console.log('Created ' + this.entity);
     const serviceName = this.getServiceName();
     this.service = myContainer.get(serviceName);
     this.getData();
