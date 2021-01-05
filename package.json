@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/qs": "^6.5.3",
     "@types/vuelidate": "^0.7.5",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "vue": "^2.6.10",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
